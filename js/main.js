@@ -99,6 +99,36 @@ if (window._initProjMagnetic) {
 })();
 
 
+// ── Favicon — cercle noir, A blanc, S rouge (Monigue) ────────
+(function () {
+  document.fonts.ready.then(function () {
+    var cvs = document.createElement('canvas');
+    cvs.width = 64; cvs.height = 64;
+    var ctx = cvs.getContext('2d');
+
+    ctx.fillStyle = '#0D0D0D';
+    ctx.beginPath();
+    ctx.arc(32, 32, 32, 0, Math.PI * 2);
+    ctx.fill();
+
+    ctx.font = 'bold 36px Monigue, sans-serif';
+    ctx.textBaseline = 'middle';
+    ctx.textAlign = 'left';
+
+    ctx.fillStyle = '#F5F3EE';
+    ctx.fillText('A', 5, 34);
+
+    ctx.fillStyle = '#E8453C';
+    ctx.fillText('S', 33, 34);
+
+    var link = document.getElementById('favicon') || document.createElement('link');
+    link.rel = 'icon';
+    link.type = 'image/png';
+    link.href = cvs.toDataURL('image/png');
+    if (!link.parentNode) document.head.appendChild(link);
+  });
+})();
+
 // ── Navigation douce (ancres internes) ───────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
