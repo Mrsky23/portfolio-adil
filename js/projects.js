@@ -102,7 +102,7 @@
       video: 'https://res.cloudinary.com/dwgfd808v/video/upload/Ode_au_gangsta_rap_zsmqpx.mp4',
       client: 'Personnel',
       contexte: 'Documenter l\'évolution du gangsta rap, de la rue au trône. Retracer comment des artistes issus des ghettos ont transformé leur réalité en empire.',
-      realisation: 'Motion design, montage, DA, parallax 2.5D, retouche Photoshop, texturing. Projet personnel ancré dans une passion réelle pour l\'histoire du rap.',
+      realisation: 'Motion design, montage, DA, parallax, retouche Photoshop, texturing. Projet personnel ancré dans une passion réelle pour l\'histoire du rap.',
       roles: ['Motion Design', 'Montage', 'DA', 'Parallax'] },
     // GRAPHISME (5)
     { titre: 'Red Signature',             cat: 'GRAPHISME', annee: '2024', format: 'landscape',
