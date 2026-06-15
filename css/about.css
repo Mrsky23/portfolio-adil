@@ -1,0 +1,310 @@
+/* ═══════════════════════════════════════════════════════════
+   ABOUT.CSS — Card centrée · split 45/55 · style Mescubook
+   ═══════════════════════════════════════════════════════════ */
+
+#about {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  background-color: #0D0D0D;
+  background-image:
+    radial-gradient(circle 700px at 50% 50%,   rgba(245,243,238,0.08) 0%, transparent 100%),
+    radial-gradient(circle 500px at 100% 0%,   rgba(245,243,238,0.15) 0%, transparent 100%),
+    radial-gradient(circle 500px at 0%   100%, rgba(245,243,238,0.15) 0%, transparent 100%),
+    radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 24px 24px;
+  background-attachment: fixed, fixed, fixed, fixed;
+  background-position: 0 0, 0 0, 0 0, 0 0;
+  color: #ffffff;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 60px;
+  margin-top: -2px;
+}
+
+/* Label vertical gauche */
+.about__side-label {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  font-family: 'Unbounded', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.3);
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+/* ── Grande card ──────────────────────────────────────────── */
+.about__card {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  width: 100%;
+  max-width: 1100px;
+  min-height: 580px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  overflow: hidden;
+  display: flex;
+  box-shadow:
+    0 2px 4px rgba(255, 255, 255, 0.08) inset,
+    0 -1px 2px rgba(0, 0, 0, 0.4) inset,
+    0 30px 80px rgba(0, 0, 0, 0.5),
+    -8px 12px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Photo côté gauche (45%) ──────────────────────────────── */
+.about__photo-side {
+  width: 45%;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.about__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  -webkit-user-drag: none;
+  user-drag: none;
+  pointer-events: none;
+}
+
+.about__num {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.about__plus {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'Unbounded', sans-serif;
+  font-size: 15px;
+  font-weight: 300;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  backdrop-filter: blur(4px);
+}
+
+.about__plus:hover {
+  background: #E8453C;
+  border-color: #E8453C;
+  color: #ffffff;
+}
+
+/* ── Infos côté droit (55%) ───────────────────────────────── */
+.about__info-side {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Nom + rôle */
+.about__info-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.about__name {
+  font-family: 'Monigue', sans-serif !important;
+  font-size: 3vw;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: normal;
+  color: #ffffff;
+  margin: 0;
+}
+
+.about__role {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  padding-top: 4px;
+  white-space: nowrap;
+}
+
+/* Séparateurs */
+.about__sep {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 0;
+}
+
+/* Stats 3 colonnes */
+.about__stats-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 4px 0;
+}
+
+.about__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 24px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.about__stat:first-child { padding-left: 0; }
+.about__stat:last-child  { border-right: none; }
+
+.about__stat-label {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+}
+
+.about__stat-value {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+}
+
+/* Bio */
+.about__bio {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+/* Tags pills */
+.about__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+.about__tag {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  padding: 6px 16px;
+  white-space: nowrap;
+}
+
+.about__tag--avail {
+  background: #E8453C;
+  border-color: #E8453C;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.about__avail-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  flex-shrink: 0;
+  animation: aboutDotPulse 2s ease-in-out infinite;
+}
+
+@keyframes aboutDotPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6); }
+  50%       { box-shadow: 0 0 0 5px rgba(34, 197, 94, 0); }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVE ABOUT
+   ══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  #about { padding: 80px 24px; }
+
+  .about__card {
+    flex-direction: column;
+    max-width: min(92vw, 520px);
+    min-height: auto;
+  }
+  .about__photo-side {
+    width: 100%;
+    height: 280px;
+    flex-shrink: 0;
+  }
+  .about__photo { object-position: center 15%; }
+  .about__name  { font-size: clamp(1.2rem, 5vw, 1.6rem); }
+  .about__bio   { font-size: 0.85rem; line-height: 1.6; }
+  .about__tag   { font-size: 0.7rem; padding: 4px 10px; }
+  .about__info-side { padding: 28px 28px 32px; gap: 1rem; }
+  .about__stats-row { gap: 0; }
+  .about__side-label { display: none; }
+}
+
+@media (max-width: 768px) {
+  #about { padding: 60px 16px; }
+  .about__card { max-width: min(94vw, 400px); }
+  .about__name { font-size: 1.2rem; }
+  .about__photo-side { height: 220px; }
+}
+
+@media (max-width: 480px) {
+  .about__card { max-width: 100%; border-radius: 12px; }
+  .about__info-side { padding: 20px 20px 28px; }
+  .about__photo-side { height: 200px; }
+  .about__stat-value { font-size: 14px; }
+}
+
+/* Outils */
+.about__tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.about__tool {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+  padding: 6px 16px;
+  white-space: nowrap;
+}
+

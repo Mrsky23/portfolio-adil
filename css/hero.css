@@ -1,0 +1,129 @@
+/* ═══════════════════════════════════════════════════════════
+   HERO.CSS — Showreel hero
+   ═══════════════════════════════════════════════════════════ */
+
+@font-face {
+  font-family: 'Network';
+  src: url('assets/fonts/Network-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Forte';
+  src: url('assets/fonts/Forte.otf') format('opentype');
+}
+
+
+/* Curseur adapté au fond sombre du hero */
+#cursor .cursor__dot { background: #ffffff; }
+
+/* ── Section ───────────────────────────────────────────────── */
+#hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  min-height: 600px;
+  overflow: hidden;
+  background-color: #0D0D0D;
+  background-image:
+    radial-gradient(circle 700px at 50% 50%,   rgba(245,243,238,0.08) 0%, transparent 100%),
+    radial-gradient(circle 500px at 100% 0%,   rgba(245,243,238,0.15) 0%, transparent 100%),
+    radial-gradient(circle 500px at 0%   100%, rgba(245,243,238,0.15) 0%, transparent 100%),
+    radial-gradient(circle, rgba(255,255,255,0.072) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 24px 24px;
+  background-attachment: fixed, fixed, fixed, fixed;
+}
+
+
+
+
+/* ── Titre display ─────────────────────────────────────────── */
+.hero__showreel {
+  user-select: none;
+  -webkit-user-select: none;
+  position: absolute;
+  top: 33%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  font-family: 'Monigue', var(--font-sans);
+  font-size: 14vw;
+  font-weight: normal;
+  line-height: 1;
+  z-index: 5;
+}
+
+.sr__white { color: #ffffff; }
+.sr__red {
+  color: #ffffff; /* état 1 (défaut) — le rouge arrive au 1er clic via JS */
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* ── Éventail de cards ─────────────────────────────────────── */
+.hero__cards {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 6;
+}
+
+/* Wrappers — positionnement + z-index
+   La rotation et le scale sont injectés par gsap.set() dans hero.js
+   → zéro conflit avec VanillaTilt qui écrit son propre transform sur .hero__card */
+.hero__card-wrap {
+  position: absolute;
+  pointer-events: auto;
+}
+
+.hero__card-wrap--1 { left: calc(50% - 266px); top: calc(66% - 49px);  z-index: 1; width: 152px; height: 197px; }
+.hero__card-wrap--2 { left: calc(50% - 186px); top: calc(66% - 85px);  z-index: 2; width: 181px; height: 237px; }
+.hero__card-wrap--3 { left: calc(50% - 114px); top: calc(66% - 130px); z-index: 4; width: 228px; height: 296px; cursor: pointer; }
+.hero__card-wrap--4 { left: calc(50% + 7px);   top: calc(66% - 81px);  z-index: 2; width: 177px; height: 233px; }
+.hero__card-wrap--5 { left: calc(50% + 114px); top: calc(66% - 49px);  z-index: 1; width: 152px; height: 197px; }
+
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVE HERO
+   ══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .hero__showreel { font-size: 16vw; }
+
+  .hero__card-wrap--1 { width: 110px; height: 143px; left: calc(50% - 200px); }
+  .hero__card-wrap--2 { width: 132px; height: 173px; left: calc(50% - 140px); }
+  .hero__card-wrap--3 { width: 168px; height: 218px; left: calc(50% - 84px); }
+  .hero__card-wrap--4 { width: 130px; height: 170px; left: calc(50% + 5px); }
+  .hero__card-wrap--5 { width: 110px; height: 143px; left: calc(50% + 84px); }
+}
+
+@media (max-width: 768px) {
+  .hero__showreel { font-size: 20vw; top: 38%; }
+  .hero__foot     { display: none; }
+}
+
+@media (max-width: 480px) {
+  .hero__showreel { font-size: 24vw; }
+
+  .hero__card-wrap--1 { width: 72px;  height: 94px;  left: calc(50% - 155px); }
+  .hero__card-wrap--2 { width: 88px;  height: 115px; left: calc(50% - 106px); }
+  .hero__card-wrap--3 { width: 110px; height: 143px; left: calc(50% - 55px);  }
+  .hero__card-wrap--4 { width: 86px;  height: 112px; left: calc(50% + 4px);   }
+  .hero__card-wrap--5 { width: 72px;  height: 94px;  left: calc(50% + 68px);  }
+}
+
+/* ── Barre inférieure ─────────────────────────────────────── */
+.hero__foot {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.75rem 2.5rem;
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.5);
+}

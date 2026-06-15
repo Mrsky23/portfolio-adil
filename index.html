@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Adil Salim — Motion Designer · Paris" />
+    <title>Adil Salim — Motion Designer</title>
+
+    <!-- Unbounded (Google Fonts) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
+
+    <!-- Fonts cycle reel (Typekit : eco + eckmannpsych-small) -->
+    <link rel="stylesheet" href="https://use.typekit.net/wbr0rvi.css" />
+
+    <!-- Monigue (self-hosted) -->
+    <style>
+      @font-face {
+        font-family: 'Monigue';
+        src: url('assets/fonts/Monigue.woff2') format('woff2'),
+             url('assets/fonts/Monigue.woff')  format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+    </style>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/loader.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/hero.css" />
+    <link rel="stylesheet" href="css/about.css" />
+    <link rel="stylesheet" href="css/projects.css" />
+    <link rel="stylesheet" href="css/detail.css" />
+    <link rel="stylesheet" href="css/contact.css" />
+  </head>
+
+  <body>
+
+    <!-- Loader card -->
+    <div id="loader">
+      <div class="loader-blob loader-blob--1"></div>
+      <div class="loader-blob loader-blob--2"></div>
+      <div class="loader-blob loader-blob--3"></div>
+      <div id="loader-card">
+        <div class="loader-card__holo"></div>
+        <div class="loader-card__photo-wrap">
+          <img class="loader-card__photo" src="https://res.cloudinary.com/dwgfd808v/image/upload/v1774375319/bonne_taille_3_srno2z.jpg" alt="" draggable="false">
+        </div>
+        <div class="loader-card__content">
+          <span class="loader-card__year">2026</span>
+          <h1 class="loader-card__name">ADIL SALIM</h1>
+          <p class="loader-card__sub">CHARGÉ DE COMMUNICATION · MOTION DESIGNER</p>
+          <span class="loader-card__cta">[ ENTRER ]</span>
+        </div>
+      </div>
+    </div>
+
+<!-- Custom cursor -->
+    <div id="cursor" aria-hidden="true">
+      <div class="cursor__dot"></div>
+      <div class="cursor__text"></div>
+    </div>
+
+    <!-- ── Navigation ──────────────────────────────────────── -->
+    <nav id="nav" aria-label="Navigation principale">
+      <a class="nav__logo" href="#hero">ADIL SALIM</a>
+      <ul class="nav__links" role="list">
+        <li><a href="#about">À PROPOS</a></li>
+        <li><a href="#projects">PROJETS</a></li>
+        <li><button class="nav__contact-btn" onclick="window.__openContact && window.__openContact()">CONTACT</button></li>
+      </ul>
+    </nav>
+
+    <!-- ── Contenu principal ────────────────────────────────── -->
+    <main>
+
+      <!-- Hero ───────────────────────────────────────────── -->
+      <section id="hero" aria-label="Accueil">
+
+        <!-- Barre supérieure 3 colonnes -->
+
+        <!-- Titre Portfolio -->
+        <div class="hero__showreel" aria-label="Portfolio">
+          <span class="sr__white">Port</span><span class="sr__red">folio</span>
+        </div>
+
+        <!-- Éventail de 5 cards -->
+        <div class="hero__cards" aria-hidden="true">
+          <div class="hero__card-wrap hero__card-wrap--1"></div>
+          <div class="hero__card-wrap hero__card-wrap--2"></div>
+          <div class="hero__card-wrap hero__card-wrap--3"></div>
+          <div class="hero__card-wrap hero__card-wrap--4"></div>
+          <div class="hero__card-wrap hero__card-wrap--5"></div>
+        </div>
+
+        <!-- Barre inférieure -->
+        <div class="hero__foot">
+          <span>© 2026</span>
+          <span>Chargé de Communication · Motion Design</span>
+        </div>
+
+
+      </section>
+
+      <!-- About ──────────────────────────────────────────── -->
+      <section id="about" aria-label="À propos">
+
+        <!-- Label vertical gauche -->
+        <span class="about__side-label">PROFIL — 2026</span>
+
+        <!-- Grande card centrée -->
+        <div class="about__card">
+
+          <!-- Gauche 45% — Photo -->
+          <div class="about__photo-side">
+            <img src="https://res.cloudinary.com/dwgfd808v/image/upload/v1774375319/bonne_taille_3_srno2z.jpg"
+                 alt="Adil Salim" class="about__photo" loading="eager">
+          </div>
+
+          <!-- Droite 55% — Infos -->
+          <div class="about__info-side">
+
+            <!-- Nom + rôle -->
+            <div class="about__info-top">
+              <h2 class="about__name">ADIL SALIM</h2>
+              <span class="about__role">CHARGÉ DE COMMUNICATION · MOTION DESIGNER</span>
+            </div>
+
+            <hr class="about__sep">
+
+            <!-- Stats 3 colonnes -->
+            <div class="about__stats-row">
+              <div class="about__stat">
+                <span class="about__stat-label">TYPE</span>
+                <span class="about__stat-value">Curieux</span>
+              </div>
+              <div class="about__stat">
+                <span class="about__stat-label">XP</span>
+                <span class="about__stat-value">3 ans</span>
+              </div>
+              <div class="about__stat">
+                <span class="about__stat-label">BASE</span>
+                <span class="about__stat-value">Lyon, FR</span>
+              </div>
+            </div>
+
+            <hr class="about__sep">
+
+            <!-- Bio -->
+            <p class="about__bio">Créatif plurimédia au sein du pôle communication de TOMA Intérim, j’allie stratégie, technique et sens esthétique pour concevoir des contenus visuels impactants. Du graphisme au motion design, en passant par la production vidéo et la post-production, j’interviens à chaque étape du processus créatif pour donner vie aux idées et renforcer leur portée.</p>
+
+            <!-- Tags + Outils + Disponible -->
+            <div class="about__tags">
+              <span class="about__tag">★ Motion Design</span>
+              <span class="about__tag">★ Montage Vidéo</span>
+              <span class="about__tag">★ 3D</span>
+              <span class="about__tag">★ Chargé de Communication</span>
+              <span class="about__tag">★ Graphisme</span>
+              <span class="about__tag">★ After Effects</span>
+              <span class="about__tag">★ Web</span>
+              <span class="about__tag">Cinema 4D</span>
+              <span class="about__tag">Premiere Pro</span>
+              <span class="about__tag">Photoshop</span>
+              <span class="about__tag">Figma</span>
+              <span class="about__tag">HTML/CSS/JS</span>
+              <span class="about__tag about__tag--avail"><span class="about__avail-dot"></span> Disponible CDI/CDD</span>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Projects ───────────────────────────────────────── -->
+      <section id="projects" class="proj" aria-label="Projets">
+
+        <!-- Glow ambiant -->
+        <div class="proj__glow" aria-hidden="true"></div>
+
+        <!-- Coins déco -->
+        <div class="proj__deco-corners" aria-hidden="true">
+          <div class="proj__corner proj__corner--tl"></div>
+          <div class="proj__corner proj__corner--tr"></div>
+          <div class="proj__corner proj__corner--bl"></div>
+          <div class="proj__corner proj__corner--br"></div>
+        </div>
+
+        <!-- Croix centrale -->
+        <div class="proj__crosshair" aria-hidden="true"><span></span><span></span></div>
+
+        <!-- Barre top : filtre + tiret + toggle vue -->
+        <div class="proj__deco-top">
+          <div class="proj__sort">
+            <div class="proj__dropdown">
+              <button class="proj__dropdown-toggle" aria-haspopup="listbox">
+                <span class="proj__dropdown-label">TRIER PAR</span>
+                <span class="proj__dropdown-active">TOUT</span>
+                <span class="proj__dropdown-caret">▾</span>
+              </button>
+              <ul class="proj__dropdown-menu" role="listbox">
+                <li><button data-filter="CHARGÉE DE COMMUNICATION" role="option">Chargée de communication</button></li>
+                <li><button data-filter="MOTION"    role="option">MOTION</button></li>
+                <li><button data-filter="GRAPHISME" role="option">GRAPHISME</button></li>
+                <li><button data-filter="VIDÉO"     role="option">VIDÉO</button></li>
+                <li><button data-filter="TOUT"      role="option" class="is-active">TOUT</button></li>
+              </ul>
+            </div>
+          </div>
+          <div class="proj__dash-line" aria-hidden="true"></div>
+          <div class="proj__view-toggle" aria-label="Changer de vue">
+            <button class="proj__view-btn is-active" data-view="slider">SLIDER</button>
+            <span class="proj__view-sep" aria-hidden="true">·</span>
+            <button class="proj__view-btn" data-view="list">LISTE</button>
+          </div>
+        </div>
+
+        <!-- Texte vertical gauche -->
+        <div class="proj__deco-left" aria-hidden="true">
+          <span class="proj__vertical-text">SÉLECTION — 2024/2026</span>
+          <div class="proj__line"></div>
+        </div>
+
+        <!-- Compteur -->
+        <div class="proj__counter" aria-live="polite">
+          <div class="proj__counter-num"><span class="proj__counter-current">01</span></div>
+          <span class="proj__counter-sep">/</span>
+          <span class="proj__counter-total">20</span>
+        </div>
+
+        <!-- Zone images — imgWrap + sleeve + overlay injectés par JS -->
+        <div class="proj__images"></div>
+
+        <!-- Vue liste — items injectés par JS -->
+        <div class="proj__list" aria-label="Liste des projets"></div>
+
+        <!-- Dial navigation droite — ticks injectés par JS -->
+        <div class="proj__dial" aria-hidden="true">
+          <div class="proj__dial-track"></div>
+        </div>
+
+        <!-- Titre oversized bas — h2 injecté par JS -->
+        <div class="proj__titles"></div>
+
+        <!-- Ligne déco sous titre -->
+        <div class="proj__underline" aria-hidden="true"></div>
+
+        <!-- Catégorie bas gauche -->
+        <div class="proj__info"></div>
+
+        <!-- Année bas droite -->
+        <div class="proj__year-wrap"></div>
+
+        <!-- Scroll hint -->
+        <div class="proj__scroll-hint" aria-hidden="true">SCROLL</div>
+
+        <!-- CTA contact -->
+        <button class="proj__contact-cta" onclick="window.__openContact && window.__openContact()">[ CONTACT ]</button>
+
+      </section>
+
+    </main>
+
+    <!-- Contact (overlay fixe — slide depuis le bas) ──── -->
+    <section id="contact" aria-label="Contact">
+
+      <!-- Bouton retour -->
+      <button class="ct__back-btn" aria-label="Retour aux projets">↑ RETOUR</button>
+
+      <!-- Card centrale -->
+      <div class="ct__card">
+
+        <!-- Colonne gauche -->
+        <div class="ct__left">
+          <h2 class="ct__title">CONTACT</h2>
+          <p class="ct__subtitle">Travaillons ensemble.</p>
+          <hr class="ct__sep">
+          <a href="mailto:adil.slm42000@gmail.com" class="ct__email">adil.slm42000@gmail.com</a>
+          <div class="ct__links">
+            <a href="https://www.linkedin.com/in/adil-salim-683aa2227" target="_blank" rel="noopener" class="ct__link">[ LINKEDIN ]</a>
+          </div>
+          <div class="ct__avail">
+            <span class="ct__dot"></span>
+            <span class="ct__avail-text">DISPONIBLE POUR CDI/CDD</span>
+          </div>
+        </div>
+
+        <!-- Colonne droite — formulaire -->
+        <div class="ct__right">
+          <form class="ct__form" novalidate>
+            <div class="ct__field">
+              <input type="text" name="nom" placeholder="NOM" autocomplete="name" required>
+            </div>
+            <div class="ct__field">
+              <input type="email" name="email" placeholder="EMAIL" autocomplete="email" required>
+            </div>
+            <div class="ct__field">
+              <textarea name="message" placeholder="MESSAGE" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="ct__btn">ENVOYER →</button>
+          </form>
+        </div>
+
+      </div>
+
+      <script src="js/contact.js" defer></script>
+
+    </section>
+
+    <!-- ── Scripts ──────────────────────────────────────────── -->
+
+    <!-- Lenis -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+    <!-- GSAP core + plugins -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollToPlugin.min.js"></script>
+
+    <!-- VanillaTilt -->
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+
+    <!-- Overlay détail projet -->
+    <div id="project-detail" aria-hidden="true" aria-modal="true" role="dialog" aria-label="Détail du projet">
+      <!-- Colonne gauche — infos -->
+      <div class="pd__left">
+        <button class="pd__back pd__animate" aria-label="Fermer le détail">RETOUR</button>
+        <div class="pd__meta">
+          <div class="pd__meta-item pd__animate">
+            <span class="pd__label">Client</span>
+            <span class="pd__value pd__client-val"></span>
+          </div>
+          <div class="pd__meta-item pd__animate">
+            <span class="pd__label">Année</span>
+            <span class="pd__value pd__year-val"></span>
+          </div>
+        </div>
+        <h2 class="pd__title pd__animate"></h2>
+        <div class="pd__section pd__animate">
+          <span class="pd__section-label">CONTEXTE</span>
+          <p class="pd__contexte"></p>
+        </div>
+        <div class="pd__section pd__animate">
+          <span class="pd__section-label">RÉALISATION</span>
+          <p class="pd__realisation"></p>
+        </div>
+        <div class="pd__section pd__animate">
+          <span class="pd__section-label">RÔLES</span>
+          <div class="pd__roles"></div>
+        </div>
+      </div>
+      <!-- Colonne droite — image (card wrap injecté par initImageEffects) -->
+      <div class="pd__right">
+        <div class="pd__card-wrap"></div>
+      </div>
+    </div>
+
+    <!-- App (utilitaires → sections → init global) -->
+    <script src="js/loader.js"></script>
+    <script src="js/crt.js"></script>
+    <script src="js/cursor.js"></script>
+    <script src="js/projects.js"></script>
+    <script src="js/hero.js"></script>
+    <script src="js/about.js"></script>
+    <script src="js/magnetic.js"></script>
+    <script src="js/main.js"></script>
+
+  </body>
+</html>
