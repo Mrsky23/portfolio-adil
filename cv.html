@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV — Adil SALIM</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    @font-face {
+      font-family: 'Monigue';
+      src: url('assets/fonts/Monigue.woff2') format('woff2'),
+           url('assets/fonts/Monigue.woff')  format('woff');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    @page { size: A4 portrait; margin: 0; }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0; padding: 0;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    /* ── Barre téléchargement (screen uniquement) ─────── */
+    .dl-bar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: 44px;
+      background: #0D0D0D;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 28px;
+    }
+    .dl-bar__label {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.22em;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+    }
+    .dl-bar__btn {
+      font-family: 'Unbounded', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      background: none;
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 4px;
+      color: rgba(255,255,255,0.7);
+      padding: 7px 18px;
+      cursor: pointer;
+      transition: border-color .2s, color .2s;
+    }
+    .dl-bar__btn:hover { border-color: #E8453C; color: #fff; }
+
+    /* ── Centrage sur écran ──────────────────────────── */
+    body {
+      background: #222;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 0 40px;
+      font-family: 'Unbounded', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Page A4 ─────────────────────────────────────── */
+    .cv {
+      width: 210mm;
+      min-height: 297mm;
+      background: #0D0D0D;
+      color: #F5F3EE;
+      box-shadow: 0 20px 80px rgba(0,0,0,0.9);
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── 1. Barre contact ────────────────────────────── */
+    .cv__topbar {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      padding: 11px 18mm;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .cv__contact-col { display: flex; flex-direction: column; gap: 3px; }
+    .cv__contact-col--center { align-items: center; text-align: center; }
+    .cv__contact-col--right  { align-items: flex-end; text-align: right; }
+    .cv__c-label {
+      font-size: 6.5px;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      color: rgba(255,255,255,0.3);
+      text-transform: uppercase;
+    }
+    .cv__c-val {
+      font-size: 8.5px;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: #F5F3EE;
+      line-height: 1.5;
+    }
+
+    /* ── 2. Nom + titre ──────────────────────────────── */
+    .cv__hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding: 14px 18mm 12px;
+    }
+    .cv__name {
+      font-family: 'Monigue', sans-serif;
+      font-size: 62px;
+      font-weight: 700;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: -0.01em;
+      line-height: 0.88;
+    }
+    .cv__job-block {
+      text-align: right;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      padding-bottom: 6px;
+    }
+    .cv__job-block span {
+      font-size: 9.5px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.75);
+      text-transform: uppercase;
+    }
+    .cv__job-block small {
+      font-size: 7px;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.28);
+      text-transform: uppercase;
+      margin-top: 5px;
+    }
+
+    /* ── Ligne rouge ─────────────────────────────────── */
+    .cv__redline { height: 2px; background: #E8453C; margin: 0 18mm; }
+
+    /* ── 3. Corps ────────────────────────────────────── */
+    .cv__body {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      flex: 1;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .cv__col-left {
+      padding: 14px 12mm 14px 18mm;
+      border-right: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+    .cv__col-right {
+      padding: 14px 18mm 14px 10mm;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    /* ── Labels ──────────────────────────────────────── */
+    .cv__sec {
+      font-size: 7px;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: #E8453C;
+      padding-bottom: 6px;
+      border-bottom: 1px solid rgba(232,69,60,0.2);
+      margin-bottom: 7px;
+    }
+
+    /* ── Bio ─────────────────────────────────────────── */
+    .cv__bio {
+      font-size: 7.5px;
+      font-weight: 300;
+      line-height: 1.9;
+      color: rgba(255,255,255,0.48);
+      letter-spacing: 0.03em;
+    }
+
+    /* ── Pills ───────────────────────────────────────── */
+    .cv__pills { display: flex; flex-wrap: wrap; gap: 5px; }
+    .cv__pill {
+      font-size: 6.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 20px;
+      padding: 4px 9px;
+      white-space: nowrap;
+    }
+
+    /* ── Photo ───────────────────────────────────────── */
+    .cv__photo {
+      width: 100%;
+      height: 70mm;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 3px;
+      display: block;
+    }
+
+    /* ── Formation ───────────────────────────────────── */
+    .cv__form-item {
+      display: flex;
+      gap: 8px;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .cv__form-item:last-child { border-bottom: none; }
+    .cv__form-date {
+      font-size: 6.5px;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.28);
+      text-transform: uppercase;
+      white-space: nowrap;
+      min-width: 52px;
+      padding-top: 1px;
+    }
+    .cv__form-name {
+      font-size: 8px;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.03em;
+      line-height: 1.4;
+    }
+    .cv__form-school {
+      font-size: 7px;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.07em;
+      margin-top: 1px;
+    }
+
+    /* ── Séparateur expérience ───────────────────────── */
+    .cv__midsep { height: 1px; background: rgba(232,69,60,0.22); margin: 0 18mm; }
+
+    /* ── 4. Expérience ───────────────────────────────── */
+    .cv__exp { padding: 12px 18mm 14px; }
+    .cv__exp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 12mm;
+      margin-top: 10px;
+    }
+    .cv__exp-item {
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding: 8px 0 3px;
+    }
+    .cv__exp-meta {
+      font-size: 6.5px;
+      letter-spacing: 0.11em;
+      color: rgba(255,255,255,0.27);
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+    .cv__exp-title {
+      font-size: 8.5px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .cv__exp-sub {
+      font-size: 7px;
+      color: rgba(255,255,255,0.37);
+      letter-spacing: 0.07em;
+    }
+
+    /* ── Footer ──────────────────────────────────────── */
+    .cv__footer {
+      margin-top: auto;
+      padding: 8px 18mm;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cv__footer-txt {
+      font-size: 6.5px;
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,0.18);
+      text-transform: uppercase;
+    }
+    .cv__footer-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: #22c55e;
+    }
+
+    /* ── Print ───────────────────────────────────────── */
+    @media print {
+      body { display: block !important; padding: 0 !important; background: #0D0D0D !important; }
+      .dl-bar { display: none !important; }
+      .cv { box-shadow: none; width: 210mm; min-height: 297mm; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dl-bar">
+    <span class="dl-bar__label">CV — Adil SALIM</span>
+    <button class="dl-bar__btn" onclick="window.print()">[ ENREGISTRER EN PDF ]</button>
+  </div>
+
+  <div class="cv">
+
+    <!-- 1. Contact -->
+    <div class="cv__topbar">
+      <div class="cv__contact-col">
+        <span class="cv__c-label">Téléphone</span>
+        <span class="cv__c-val">07 86 20 57 71</span>
+      </div>
+      <div class="cv__contact-col cv__contact-col--center">
+        <span class="cv__c-label">Adresse</span>
+        <span class="cv__c-val">2 chemin de Serin — Lyon 69004</span>
+      </div>
+      <div class="cv__contact-col cv__contact-col--right">
+        <span class="cv__c-label">Mail</span>
+        <span class="cv__c-val">adil.slm42000@gmail.com</span>
+      </div>
+    </div>
+
+    <!-- 2. Nom + titre -->
+    <div class="cv__hero">
+      <div class="cv__name">ADIL<br>SALIM</div>
+      <div class="cv__job-block">
+        <span>CHARGÉ DE COMMUNICATION</span>
+        <span>MOTION DESIGNER</span>
+        <small>Né le 16/06/2000 · Permis B</small>
+      </div>
+    </div>
+    <div class="cv__redline"></div>
+
+    <!-- 3. Corps -->
+    <div class="cv__body">
+
+      <div class="cv__col-left">
+        <div>
+          <div class="cv__sec">À PROPOS</div>
+          <p class="cv__bio">Créatif plurimédia au sein du pôle communication de TOMA Intérim, j'allie stratégie, technique et sens esthétique pour concevoir des contenus visuels impactants. Du graphisme au motion design, en passant par la production vidéo et la post-production, j'interviens à chaque étape du processus créatif pour donner vie aux idées et renforcer leur portée.</p>
+        </div>
+        <div>
+          <div class="cv__sec">COMPÉTENCES</div>
+          <div class="cv__pills">
+            <span class="cv__pill">Suite Adobe</span>
+            <span class="cv__pill">Cinema 4D</span>
+            <span class="cv__pill">Figma</span>
+            <span class="cv__pill">Canva</span>
+            <span class="cv__pill">Suite Office</span>
+            <span class="cv__pill">HTML / CSS / JS</span>
+            <span class="cv__pill">Claude · Claude Code</span>
+          </div>
+        </div>
+        <div>
+          <div class="cv__sec">LANGUES</div>
+          <div class="cv__pills">
+            <span class="cv__pill">Français</span>
+            <span class="cv__pill">Anglais B1 (TOEIC)</span>
+          </div>
+        </div>
+        <div>
+          <div class="cv__sec">LOISIRS</div>
+          <div class="cv__pills">
+            <span class="cv__pill">Jeux vidéo</span>
+            <span class="cv__pill">Sport</span>
+            <span class="cv__pill">Musique</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv__col-right">
+        <img class="cv__photo"
+             src="https://res.cloudinary.com/dwgfd808v/image/upload/v1774375319/bonne_taille_3_srno2z.jpg"
+             alt="Adil Salim">
+        <div>
+          <div class="cv__sec">FORMATION</div>
+          <div class="cv__form-item">
+            <div class="cv__form-date">2024 — 2026</div>
+            <div>
+              <div class="cv__form-name">Mastère Motion Design</div>
+              <div class="cv__form-school">e-artsup · Lyon</div>
+            </div>
+          </div>
+          <div class="cv__form-item">
+            <div class="cv__form-date">2021 — 2024</div>
+            <div>
+              <div class="cv__form-name">Bachelor Communication &amp; Digital Design</div>
+              <div class="cv__form-school">Télécom Saint-Étienne</div>
+            </div>
+          </div>
+          <div class="cv__form-item">
+            <div class="cv__form-date">Lycée</div>
+            <div>
+              <div class="cv__form-name">Bac Pro Microtechnique</div>
+              <div class="cv__form-school">Lycée Le Marais · Saint-Étienne</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="cv__midsep"></div>
+
+    <!-- 4. Expérience -->
+    <div class="cv__exp">
+      <div class="cv__sec">EXPÉRIENCE PROFESSIONNELLE</div>
+      <div class="cv__exp-grid">
+        <div class="cv__exp-item">
+          <div class="cv__exp-meta">Sept 2023 — Aujourd'hui · Alternance · Montbrison</div>
+          <div class="cv__exp-title">Chargé de Communication</div>
+          <div class="cv__exp-sub">TOMA Intérim</div>
+        </div>
+        <div class="cv__exp-item">
+          <div class="cv__exp-meta">Fév 2023 — Août 2023 · CDI · Saint-Étienne</div>
+          <div class="cv__exp-title">Employé polyvalent</div>
+          <div class="cv__exp-sub">Primark</div>
+        </div>
+        <div class="cv__exp-item">
+          <div class="cv__exp-meta">Avr 2023 — Juin 2023 · Stage</div>
+          <div class="cv__exp-title">Chargé de Communication</div>
+          <div class="cv__exp-sub">Aquavélo Saint-Étienne</div>
+        </div>
+        <div class="cv__exp-item">
+          <div class="cv__exp-meta">Sept 2020 — Nov 2022 · CDI · Saint-Étienne</div>
+          <div class="cv__exp-title">Manager</div>
+          <div class="cv__exp-sub">IT Italian Trattoria</div>
+        </div>
+        <div class="cv__exp-item">
+          <div class="cv__exp-meta">Avr 2022 — Mai 2022 · Stage · Saint-Étienne</div>
+          <div class="cv__exp-title">Graphiste</div>
+          <div class="cv__exp-sub">GetBold</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="cv__footer">
+      <span class="cv__footer-txt">Né le 16/06/2000 · Permis B · Lyon</span>
+      <div class="cv__footer-dot"></div>
+      <span class="cv__footer-txt">Disponible CDI / CDD</span>
+    </div>
+
+  </div>
+
+</body>
+</html>

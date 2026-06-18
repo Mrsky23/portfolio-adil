@@ -1,0 +1,395 @@
+/* ═══════════════════════════════════════════════════════
+   CV.CSS — Overlay Curriculum Vitae
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Overlay ──────────────────────────────────────────── */
+#cv {
+  position: fixed;
+  bottom: -100vh;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  z-index: 55;
+  background-color: #0D0D0D;
+  background-image:
+    radial-gradient(circle 700px at 50% 50%,   rgba(245,243,238,0.08) 0%, transparent 100%),
+    radial-gradient(circle 500px at 100% 0%,   rgba(245,243,238,0.15) 0%, transparent 100%),
+    radial-gradient(circle 500px at 0%   100%, rgba(245,243,238,0.15) 0%, transparent 100%),
+    radial-gradient(circle 400px at 0%   0%,   rgba(255,255,255,0.055) 0%, transparent 100%),
+    radial-gradient(circle 400px at 100% 100%, rgba(255,255,255,0.055) 0%, transparent 100%),
+    radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 24px 24px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: calc(var(--nav-h) + 52px) 24px 32px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+}
+
+/* ── Bouton retour (absolu, coin haut-gauche) ─────────── */
+.cv__back-btn {
+  position: absolute;
+  top: calc(var(--nav-h) + 12px);
+  left: 52px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.35);
+  font-family: 'Unbounded', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10;
+  transition: color 0.2s ease;
+}
+.cv__back-btn:hover { color: #fff; }
+
+/* ── Bouton PDF (absolu, coin haut-droit) ─────────────── */
+.cv__print-btn {
+  position: absolute;
+  top: calc(var(--nav-h) + 8px);
+  right: 52px;
+  font-family: 'Unbounded', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 4px;
+  color: rgba(255,255,255,0.6);
+  padding: 8px 18px;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+.cv__print-btn:hover {
+  color: #fff;
+  border-color: #E8453C;
+  background: rgba(232,69,60,0.08);
+}
+
+/* ── Card principale ──────────────────────────────────── */
+.cv__card {
+  width: 100%;
+  max-width: 900px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.02);
+  box-shadow:
+    0 2px 4px rgba(255,255,255,0.08) inset,
+    0 -1px 2px rgba(0,0,0,0.4) inset,
+    0 30px 80px rgba(0,0,0,0.5);
+  padding: 36px 44px 32px;
+}
+
+/* ── Header : Photo + Identité ────────────────────────── */
+.cv__header {
+  display: flex;
+  gap: 36px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.cv__photo-wrap {
+  flex-shrink: 0;
+  width: 108px;
+  height: 130px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.cv__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.cv__ident {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 2px;
+}
+
+.cv__name {
+  font-family: 'Monigue', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  line-height: 1;
+  margin: 0;
+}
+
+/* Titre sur une ligne : CHARGÉ DE COMMUNICATION / Motion Designer */
+.cv__jobs {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.cv__job1 {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: #E8453C;
+  text-transform: uppercase;
+}
+
+.cv__job-sep {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 10px;
+  color: rgba(255,255,255,0.2);
+}
+
+.cv__job2 {
+  font-family: 'Monigue', sans-serif;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.45);
+}
+
+.cv__avail-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.cv__avail-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+  flex-shrink: 0;
+  animation: cv-dot-pulse 2s ease-in-out infinite;
+}
+
+@keyframes cv-dot-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.6); }
+  50%       { box-shadow: 0 0 0 5px rgba(34,197,94,0); }
+}
+
+.cv__avail-text {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 9px;
+  color: rgba(255,255,255,0.32);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.cv__contact-line {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 8.5px;
+  color: rgba(255,255,255,0.22);
+  letter-spacing: 0.08em;
+  line-height: 1.9;
+  margin-top: 8px;
+}
+
+/* ── Séparateur ───────────────────────────────────────── */
+.cv__divider {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  margin: 0 0 24px;
+}
+
+/* ── Corps 2 colonnes ─────────────────────────────────── */
+.cv__body {
+  display: grid;
+  grid-template-columns: 1fr 1.65fr;
+  gap: 40px;
+}
+
+/* ── Bloc (section) ───────────────────────────────────── */
+.cv__block {
+  margin-bottom: 22px;
+}
+.cv__block:last-child { margin-bottom: 0; }
+
+.cv__block-label {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 8.5px;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #E8453C;
+  margin: 0 0 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(232,69,60,0.2);
+}
+
+/* ── Pills ────────────────────────────────────────────── */
+.cv__pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.cv__pill {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 5px 12px;
+  white-space: nowrap;
+}
+
+/* ── Timeline ─────────────────────────────────────────── */
+.cv__timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.cv__item {
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.cv__item:first-child { padding-top: 0; }
+.cv__item:last-child  { border-bottom: none; padding-bottom: 0; }
+
+.cv__item-date {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 8px;
+  color: rgba(255,255,255,0.27);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+}
+
+.cv__item-title {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  margin-bottom: 2px;
+}
+
+.cv__item-sub {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 8.5px;
+  color: rgba(255,255,255,0.36);
+  letter-spacing: 0.09em;
+}
+
+/* ══════════════════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .cv__card { padding: 30px 28px; }
+}
+
+@media (max-width: 768px) {
+  #cv { padding: calc(var(--nav-h) + 48px) 16px 28px; }
+  .cv__back-btn  { left: 20px; }
+  .cv__print-btn { right: 20px; font-size: 9px; padding: 7px 14px; }
+  .cv__card      { padding: 24px 20px; }
+
+  .cv__header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+  .cv__avail-row { justify-content: center; }
+  .cv__jobs      { justify-content: center; }
+
+  .cv__body { grid-template-columns: 1fr; gap: 0; }
+  .cv__col--left {
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  #cv { padding: calc(var(--nav-h) + 44px) 10px 24px; }
+  .cv__card  { border-radius: 12px; }
+}
+
+/* ══════════════════════════════════════════════════════
+   PRINT / EXPORT PDF
+   ══════════════════════════════════════════════════════ */
+
+@media print {
+  @page { size: A4 portrait; margin: 12mm 14mm; }
+
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  #loader, #cursor, #nav, main, #contact,
+  #project-detail, body::before, body::after,
+  .cv__back-btn, .cv__print-btn { display: none !important; }
+
+  body {
+    background: #F5F3EE !important;
+    overflow: visible !important;
+    cursor: auto !important;
+  }
+
+  #cv {
+    position: relative !important;
+    bottom: auto !important;
+    transform: none !important;
+    height: auto !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    background: transparent !important;
+    background-image: none !important;
+    display: block !important;
+  }
+
+  .cv__card {
+    border: 1px solid rgba(0,0,0,0.1) !important;
+    background: #fff !important;
+    box-shadow: none !important;
+    border-radius: 8px !important;
+    padding: 24px 28px !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .cv__name         { color: #0D0D0D !important; }
+  .cv__job1         { color: #E8453C !important; }
+  .cv__job-sep      { color: rgba(0,0,0,0.25) !important; }
+  .cv__job2         { color: #444    !important; }
+  .cv__avail-text   { color: #555    !important; }
+  .cv__contact-line { color: #666    !important; }
+  .cv__divider      { border-top-color: rgba(0,0,0,0.1) !important; }
+  .cv__block-label  { color: #E8453C !important; border-bottom-color: rgba(232,69,60,0.25) !important; }
+  .cv__pill         { color: #0D0D0D !important; border-color: rgba(0,0,0,0.14) !important; }
+  .cv__item-date    { color: #777    !important; }
+  .cv__item-title   { color: #0D0D0D !important; }
+  .cv__item-sub     { color: #888    !important; }
+  .cv__item         { border-bottom-color: rgba(0,0,0,0.07) !important; }
+  .cv__avail-dot    { animation: none !important; box-shadow: none !important; }
+
+  .cv__body { grid-template-columns: 1fr 1.65fr !important; }
+  .cv__col--left {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}

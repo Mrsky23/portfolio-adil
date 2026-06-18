@@ -173,13 +173,13 @@
 
       /* Spring retour après throw */
       if (!isDrag) {
-        dvx += (0 - ddx) * 0.04; dvx *= 0.88; ddx += dvx;
-        dvy += (0 - ddy) * 0.04; dvy *= 0.88; ddy += dvy;
+        dvx += (0 - ddx) * 0.016; dvx *= 0.94; ddx += dvx;
+        dvy += (0 - ddy) * 0.016; dvy *= 0.94; ddy += dvy;
       }
 
       /* Spin spring */
-      spinV += (0 - spinAngle) * 0.04;
-      spinV *= 0.94;
+      spinV += (0 - spinAngle) * 0.012;
+      spinV *= 0.97;
       spinAngle += spinV;
 
       cRX += (tRX - cRX) * 0.1;
