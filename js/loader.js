@@ -3,6 +3,7 @@
   var card    = document.getElementById('loader-card');
   var holoEl  = card.querySelector('.loader-card__holo');
   var photoEl = card.querySelector('.loader-card__photo');
+  var isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
 
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   window.scrollTo(0, 0);
@@ -82,21 +83,23 @@
   }, { passive: true });
 
   /* ── Grab ────────────────────────────────────────────────── */
-  card.addEventListener('mousedown', function (e) {
-    if (exiting || !enterDone) return;
-    e.preventDefault();
-    isDrag      = true;
-    wasDragging = false;
-    grabX       = e.clientX - ddx;
-    grabY       = e.clientY - ddy;
-    dvx = 0; dvy = 0;
-    mvx = 0; mvy = 0;
-    lastMX = e.clientX;
-    lastMY = e.clientY;
-    spinV = 0;
-    resizeHolo();
-    hCanvas.style.opacity = '1';
-  });
+  if (!isCoarsePointer) {
+    card.addEventListener('mousedown', function (e) {
+      if (exiting || !enterDone) return;
+      e.preventDefault();
+      isDrag      = true;
+      wasDragging = false;
+      grabX       = e.clientX - ddx;
+      grabY       = e.clientY - ddy;
+      dvx = 0; dvy = 0;
+      mvx = 0; mvy = 0;
+      lastMX = e.clientX;
+      lastMY = e.clientY;
+      spinV = 0;
+      resizeHolo();
+      hCanvas.style.opacity = '1';
+    });
+  }
 
   /* ── Release → throw ─────────────────────────────────────── */
   window.addEventListener('mouseup', function () {
@@ -207,8 +210,8 @@
     rafId = requestAnimationFrame(tick);
   }
 
-  /* ── Hint drag ───────────────────────────────────────────── */
-  (function () {
+  /* ── Hint drag (desktop uniquement) ───────────────────────── */
+  if (!isCoarsePointer) (function () {
     var style = document.createElement('style');
     style.textContent =
       '@keyframes loaderDragFloat{' +

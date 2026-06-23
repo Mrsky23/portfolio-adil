@@ -218,3 +218,29 @@ body.is-loading::-webkit-scrollbar { display: none; }
   background: #E8453C;
   border-color: #E8453C;
 }
+
+/* ══════════════════════════════════════════════════════════════
+   RESPONSIVE LOADER
+   ══════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+  #loader-card {
+    width: min(72vw, 320px);
+    height: auto;
+    aspect-ratio: 380 / 520;
+    border-radius: 16px;
+  }
+
+  .loader-card__photo-wrap,
+  .loader-card__holo { border-radius: 16px; }
+
+  .loader-card__content { padding: 26px 26px 30px; gap: 8px; }
+  .loader-card__year    { font-size: 10px; }
+  .loader-card__name    { font-size: 1.9rem; }
+  .loader-card__sub     { font-size: 9px; }
+  .loader-card__cta     { font-size: 11px; padding: 7px 14px; margin-top: 6px; }
+}
+
+@media (max-width: 420px) {
+  #loader-card { width: min(78vw, 280px); }
+  .loader-card__name { font-size: 1.6rem; }
+}

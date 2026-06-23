@@ -281,12 +281,13 @@
 }
 
 @media (max-width: 768px) {
+  #contact      { padding-top: 100px; }
   .ct__title    { font-size: 10vw; }
-  .ct__back-btn { top: calc(var(--nav-h) + 8px); left: 20px; }
+  .ct__back-btn { top: calc(var(--nav-h) + 28px); left: 20px; }
 }
 
 @media (max-width: 480px) {
-  #contact { padding: 48px 12px; }
+  #contact { padding: 90px 12px 48px; }
   .ct__card { max-width: 100%; border-radius: 12px; }
   .ct__left, .ct__right { padding: 24px 20px; }
 }

@@ -67,7 +67,10 @@
     <!-- ── Navigation ──────────────────────────────────────── -->
     <nav id="nav" aria-label="Navigation principale">
       <a class="nav__logo" href="#hero">ADIL SALIM</a>
-      <ul class="nav__links" role="list">
+      <button class="nav__burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="nav-links" role="list">
         <li><a href="#about">À PROPOS</a></li>
 <li><a href="#projects">PROJETS</a></li>
         <li><a href="assets/cv/CV_Adil_SALIM_2026.pdf" download="CV_Adil_SALIM_2026.pdf">TÉLÉCHARGER CV</a></li>
@@ -235,7 +238,7 @@
         <div class="proj__images"></div>
 
         <!-- Vue liste — items injectés par JS -->
-        <div class="proj__list" aria-label="Liste des projets"></div>
+        <div class="proj__list" aria-label="Liste des projets" data-lenis-prevent></div>
 
         <!-- Dial navigation droite — ticks injectés par JS -->
         <div class="proj__dial" aria-hidden="true">

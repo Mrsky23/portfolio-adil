@@ -31,6 +31,8 @@
   const card = document.querySelector('.about__card');
   if (!card) return;
 
+  const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+
   if (window.__holoDisabled) { tiltReady = true; tiltLoop(); return; }
 
   // La card doit être positionnée pour le canvas absolu
@@ -181,17 +183,19 @@
   }, { passive: true });
 
   /* ── Grab ───────────────────────────────────────────────── */
-  card.addEventListener('mousedown', e => {
-    e.preventDefault();
-    isDrag = true;
-    grabX  = e.clientX - ddx;
-    grabY  = e.clientY - ddy;
-    dvx = 0; dvy = 0;
-    mvx = 0; mvy = 0;
-    lastMX = e.clientX;
-    lastMY = e.clientY;
-    spinV = 0;
-  });
+  if (!isCoarsePointer) {
+    card.addEventListener('mousedown', e => {
+      e.preventDefault();
+      isDrag = true;
+      grabX  = e.clientX - ddx;
+      grabY  = e.clientY - ddy;
+      dvx = 0; dvy = 0;
+      mvx = 0; mvy = 0;
+      lastMX = e.clientX;
+      lastMY = e.clientY;
+      spinV = 0;
+    });
+  }
 
   /* ── Release — throw avec vélocité ─────────────────────── */
   window.addEventListener('mouseup', () => {
@@ -207,9 +211,9 @@
   });
 
   /* ══════════════════════════════════════════════════════════
-     Drag hint — disparaît au premier mousedown
+     Drag hint — disparaît au premier mousedown (desktop uniquement)
      ══════════════════════════════════════════════════════════ */
-  (function () {
+  if (!isCoarsePointer) (function () {
     const s = document.createElement('style');
     s.textContent =
       '@keyframes aboutDragFloat{' +

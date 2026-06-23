@@ -478,6 +478,57 @@
   }, { passive: false, capture: true });
 
   /* ═══════════════════════════════════════════════════════
+     Navigation — swipe tactile (mobile)
+     ═══════════════════════════════════════════════════════ */
+  let touchStartY = 0;
+
+  window.addEventListener('touchstart', e => {
+    if (isListMode) return;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true, capture: true });
+
+  window.addEventListener('touchmove', e => {
+    if (isListMode) return;
+
+    const r = section.getBoundingClientRect();
+    const inSection = r.top <= 10 && r.bottom >= window.innerHeight - 10;
+    if (!inSection) return;
+
+    const currentY = e.touches[0].clientY;
+    const dy = touchStartY - currentY;
+
+    if (dy < 0 && currentIdx === 0) return;
+
+    e.preventDefault();
+    e.stopImmediatePropagation();
+
+    if (contactOpen) return;
+    if (Math.abs(dy) < 50) return;
+
+    touchStartY = currentY;
+
+    if (dy > 0 && currentIdx === filtered.length - 1) {
+      contactOpen = true;
+      gsap.to('#contact', {
+        y: '-100vh', duration: 0.8, ease: 'power3.out',
+        onComplete: () => window.dispatchEvent(new CustomEvent('contact:open'))
+      });
+      return;
+    }
+
+    if (wheelCooldown || isAnimating) return;
+    wheelCooldown = true;
+    setTimeout(() => { wheelCooldown = false; }, 920);
+
+    if (scrollHint && !scrollHint.classList.contains('is-hidden'))
+      scrollHint.classList.add('is-hidden');
+
+    if (dy > 0) goTo(currentIdx + 1,  1);
+    else        goTo(currentIdx - 1, -1);
+
+  }, { passive: false, capture: true });
+
+  /* ═══════════════════════════════════════════════════════
      Filtre — dropdown
      ═══════════════════════════════════════════════════════ */
   dropToggle.addEventListener('click', e => {

@@ -129,6 +129,29 @@ if (window._initProjMagnetic) {
   });
 })();
 
+// ── Menu mobile (burger) ──────────────────────────────────────
+(function () {
+  const burger = document.querySelector('.nav__burger');
+  const links  = document.querySelector('.nav__links');
+  if (!burger || !links) return;
+
+  function closeMenu() {
+    burger.classList.remove('is-active');
+    burger.setAttribute('aria-expanded', 'false');
+    links.classList.remove('is-open');
+  }
+
+  burger.addEventListener('click', () => {
+    const isOpen = links.classList.toggle('is-open');
+    burger.classList.toggle('is-active', isOpen);
+    burger.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  links.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('click', closeMenu);
+  });
+})();
+
 // ── Navigation douce (ancres internes) ───────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
